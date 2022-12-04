@@ -14,4 +14,7 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
   },
+  rule:{
+    'linebreak-style':['error','windows'] //使用Windows 預設的 CRLF 的形式進行換行
+  }
 };
