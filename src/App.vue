@@ -16,15 +16,16 @@
             <router-link to="/about" class="nav-link">About</router-link>
           </li>
           <li class="nav-item" >
-            <router-link class="nav-link"
-              :to="{
-                name: '新增頁面',
-              }">新增頁面</router-link>
+            <router-link class="nav-link" :to="{
+              name : '新增頁面'
+            }">新增頁面</router-link>
+            <!-- 動態綁定to -->
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
   <div class="container" style="height: 300vh">
     <router-view/>
   </div>
@@ -32,7 +33,7 @@
 </template>
 
 <style lang="scss">
-body {
-  padding-top: 80px
-}
+// body {
+//   padding-top: 80px
+// }
 </style>
