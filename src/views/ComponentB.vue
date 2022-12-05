@@ -1,3 +1,3 @@
 <template>
-    元件A
+    元件B
 </template>
