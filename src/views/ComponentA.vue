@@ -1,3 +1,5 @@
 <template>
-    元件A
+<div>
+元件A
+</div>
 </template>
