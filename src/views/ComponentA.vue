@@ -1,5 +1,5 @@
 <template>
     <div>
-      元件A  
+      元件A
     </div>
 </template>
