@@ -19,20 +19,44 @@ const routes = [
     path: '/newpage', // 路由表的第一層前面要加上 /
     name: '新增頁面', // 允許中文
     component: () => import('../views/NewPage.vue'),
+    children: [ // 巢狀路由：在newpage 頁面中加入三個子頁面(ComponentA, ComponentB, NamedView)
+      {
+        path: 'a', // 子路由路徑前面不需加/
+        component: () => import('../views/ComponentA.vue'),
+      },
+      {
+        path: 'b', // 子路由路徑前面不需加/
+        component: () => import('../views/ComponentB.vue'),
+      },
+      {
+        // 具名路由示範
+        path: 'namedView',
+        component: () => import('../views/NamedView.vue'),
+        // 具名路由中的巢狀路由
+        children: [
+          {
+            path: 'c2a',
+            components: {
+              // namedView元件中有兩個router-view，因此必須載入兩個元件，且以物件型式帶入，視圖名稱即為物件名稱
+              left: () => import('../views/ComponentC.vue'),
+              right: () => import('../views/ComponentA.vue'),
+            },
+
+          },
+          {
+            path: 'a2b',
+            components: {
+              // namedView元件中有兩個router-view，因此必須載入兩個元件，且以物件型式帶入，視圖名稱即為物件名稱
+              left: () => import('../views/ComponentA.vue'),
+              right: () => import('../views/ComponentB.vue'),
+            },
+
+          },
+        ],
+      },
+    ],
   },
-  // {
-  //   path: '/newpage',
-  //   name: '新增頁面',
-  //   component: () => import('../views/NewPage.vue'),
-  //   children: [
-  //     {
-  //       path: 'a',
-  //       component: () => import('../views/ComponentA.vue'),
-  //     },
-  //     {
-  //       path: 'b',
-  //       component: () => import('../views/ComponentB.vue'),
-  //     },
+
   //     {
   //       path: 'dynamicRouter/:id',
   //       component: () => import('../views/DynamicRouter.vue'),
@@ -90,16 +114,16 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
-  linkActiveClass: 'active',
-  scrollBehavior(to, from, savedPosition) {
-    console.log(to, from, savedPosition);
-    if (to.fullPath.match('newPage')) {
-      return {
-        top: 0,
-      };
-    }
-    return {};
-  },
+  // linkActiveClass: 'active',
+  // scrollBehavior(to, from, savedPosition) {
+  //   console.log(to, from, savedPosition);
+  //   if (to.fullPath.match('newPage')) {
+  //     return {
+  //       top: 0,
+  //     };
+  //   }
+  //   return {};
+  // },
 });
 
 export default router; // export至src>main.js

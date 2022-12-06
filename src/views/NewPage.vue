@@ -1,5 +1,44 @@
 <template>
-<div>新增頁面</div>
+  <div class="row">
+    <div class="col-4">
+      <div class="list-group">
+        <router-link
+          to="/newpage/a"
+          class="list-group-item list-group-item-action"
+          aria-current="true"
+        >
+          元件A (巢狀路由)
+        </router-link>
+        <router-link
+          to="/newpage/b"
+          class="list-group-item list-group-item-action"
+          aria-current="true"
+        >
+          元件B (巢狀路由)
+        </router-link>
+
+        <router-link
+          to="/newpage/namedView/c2a"
+          class="list-group-item list-group-item-action"
+          aria-current="true"
+        >
+          元件c2a (具名+巢狀路由)
+        </router-link>
+        <router-link
+          to="/newpage/namedView/a2b"
+          class="list-group-item list-group-item-action"
+          aria-current="true"
+        >
+          元件a2b (具名+巢狀路由)
+        </router-link>
+      </div>
+    </div>
+    <div class="col-8">
+      <router-view></router-view>
+      <!--此處提供ComponentA & B & NameView.vue 的連結進入點-->
+    </div>
+  </div>
+
   <!-- <div class="row">
     <div class="col-4">
       <div class="list-group">
