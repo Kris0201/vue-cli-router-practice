@@ -19,7 +19,8 @@ const routes = [
     path: '/newpage', // 路由表的第一層前面要加上 /
     name: '新增頁面', // 允許中文
     component: () => import('../views/NewPage.vue'),
-    children: [ // 巢狀路由：在newpage 頁面中加入三個子頁面(ComponentA, ComponentB, NamedView)
+    children: [
+      // 巢狀路由：在newpage 頁面中加入三個子頁面(ComponentA, ComponentB, NamedView)
       {
         path: 'a', // 子路由路徑前面不需加/
         component: () => import('../views/ComponentA.vue'),
@@ -27,6 +28,10 @@ const routes = [
       {
         path: 'b', // 子路由路徑前面不需加/
         component: () => import('../views/ComponentB.vue'),
+      },
+      {
+        path: 'dynamicRouter/:id', // 冒號後的id是自定義名稱，是動態路由動態的部分
+        component: () => import('../views/DynamicRouter.vue'),
       },
       {
         // 具名路由示範
