@@ -33,7 +33,7 @@
 </template>
 
 <style lang="scss">
-// body {
-//   padding-top: 80px
-// }
+body {
+  padding-top: 80px
+}
 </style>
